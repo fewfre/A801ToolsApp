@@ -1,0 +1,32 @@
+{
+	"compilerOptions": {
+		"source-path": [
+			"src"
+		],
+		"output": "bin/Fewfre's A801 Tools.swf",
+		"default-frame-rate": 30,
+		"default-background-color": "#FFFFFF",
+		"default-size": {
+			"width": 800,
+			"height": 600
+		},
+		"target-player": "3.0",
+		"accessible": false,
+		"advanced-telemetry": false,
+		"benchmark": false,
+		"optimize": true,
+		"omit-trace-statements": true,
+		"show-unused-type-selector-warnings": true,
+		"strict": true,
+		"use-network": true,
+		"use-resource-bundle-metadata": true,
+		"warnings": true,
+		"verbose-stacktraces": false,
+		"static-link-runtime-shared-libraries": true
+	},
+	"files": [
+		"src/AppMain.as"
+	],
+	"config": "air",
+	"application": "application.xml"
+}

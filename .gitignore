@@ -1,0 +1,6 @@
+.vscode
+bin/
+bat/SetupApp.bat
+bat/SetupSDK.bat
+air/
+obj/
