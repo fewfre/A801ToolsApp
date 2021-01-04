@@ -5,6 +5,10 @@ package
     import flash.net.*;
     import flash.system.*;
     import flash.utils.*;
+	
+	import flash.text.TextField;
+	import flash.text.TextFormat;
+	import flash.text.TextFieldAutoSize;
 
 	[SWF(backgroundColor="0x6A7495" , width="900" , height="425")]
 	public class AppMain extends MovieClip
@@ -31,6 +35,13 @@ package
 			gear.y = -gear.height*0.5;
 			gear = null;
 			
+			var txt:TextField = addChild(new TextField()) as TextField;
+			txt.defaultTextFormat = new TextFormat("Veranda", 32, 0xC2C2DA);
+			txt.autoSize = TextFieldAutoSize.CENTER;
+			txt.text = "Loading...";
+			txt.x = stage.stageWidth * 0.5 - (txt.textWidth * 0.5);
+			txt.y = stage.stageHeight - 65;
+			
 			addEventListener(Event.ENTER_FRAME, _update);
 			
 			_startLoad();
@@ -55,7 +66,7 @@ package
 				removeChildAt(0);
 			}
 			_loadingIcon = null;
-			removeEventListener(Event.ENTER_FRAME, update);
+			removeEventListener(Event.ENTER_FRAME, _update);
 			
 			// Add SWF to stage
 			_loader = new Loader();
