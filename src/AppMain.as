@@ -52,7 +52,8 @@ package
 			_urlLoader = new URLLoader();
 			_urlLoader.dataFormat = "binary";
 			_urlLoader.addEventListener("complete", _onLoadComplete);
-			_urlLoader.load(new URLRequest(url + "?d=" + new Date().getTime()));
+			var now:Date = new Date(), cb:String = [now.getFullYear(), now.getMonth(), now.getDate()].join("-"); // Cache break once a day to be safe
+			_urlLoader.load(new URLRequest(url + "?d=" + cb));
 		}
 
 		private function _onLoadComplete(event:Event) : void {
