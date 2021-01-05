@@ -1,2 +1,2 @@
 # Fewfre's A801 Tools
-Very simplified AIR app that loads in `external tools.swf` from a seperate project. This allows the launcher to (in theory) never need updating.
+Very simplified AIR app that loads in an external `tools.swf` from a [seperate project](https://github.com/fewfre/A801ToolsLauncher). This allows this app to (in theory) never need updating, as any updates would be done in the external swf.
