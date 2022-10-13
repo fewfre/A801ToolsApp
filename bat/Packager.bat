@@ -14,9 +14,13 @@ echo.
 echo Packaging %AIR_NAME%%AIR_TARGET%.air using certificate %CERT_FILE%...
 call adt -package %OPTIONS% %SIGNING_OPTIONS% %OUTPUT% %APP_XML% %FILE_OR_DIR%
 :: Making native installer - https://help.adobe.com/en_US/air/build/WS789ea67d3e73a8b22388411123785d839c-8000.html
-call adt -package -target native %AIR_PATH%\%AIR_NAME%%AIR_TARGET% %OUTPUT%
+call adt -package -target bundle %AIR_PATH%\%AIR_NAME%%AIR_TARGET% %OUTPUT%
 
 :: call adt -package -target apk-captive-runtime %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME% %OUTPUT%
+:: call adt -package -target apk-captive-runtime %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME%.apk %AIR_PATH%\%AIR_NAME%-app.xml "bin\Fewfre's A801 Tools.swf" meta
+@REM call adt -package -target apk-captive-runtime %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME%.apk application.xml "Fewfre's A801 Tools.swf" meta
+:: call adt -package -target apk-debug -listen 7936 %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME%.apk application.xml "Fewfre's A801 Tools.swf" meta
+call adt -package -target apk %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME%.apk "application-android-window-content.xml" "bin/Fewfre's A801 Tools.swf" meta
 
 if errorlevel 1 goto failed
 goto end

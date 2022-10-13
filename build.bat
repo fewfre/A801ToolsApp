@@ -1,0 +1,1 @@
+call bat/PackageApp.bat

@@ -10,8 +10,9 @@
 	<copyright></copyright> 
 	
 	<initialWindow> 
-		<title>Fewfre's A801 Tools</title> 
-		<content>Fewfre's%20A801%20Tools.swf</content> 
+		<title>Fewfre's A801 Tools</title>
+		<!--Android is stupid and doesn't respect this the same way as the other ADT commands-->
+		<content>bin/Fewfre's%20A801%20Tools.swf</content> 
 		<systemChrome>standard</systemChrome> 
 		<transparent>false</transparent> 
 		<visible>true</visible> 

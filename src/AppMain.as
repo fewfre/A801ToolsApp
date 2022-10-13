@@ -9,6 +9,8 @@ package
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextFieldAutoSize;
+	
+	import ext.ParentAppSystem;
 
 	[SWF(backgroundColor="0x6A7495" , width="900" , height="425")]
 	public class AppMain extends MovieClip
@@ -30,7 +32,7 @@ package
 			_loadingIcon = addChild(new Sprite()) as Sprite;
 			_loadingIcon.x = stage.stageWidth * 0.5;
 			_loadingIcon.y = stage.stageHeight * 0.5;
-			var gear = _loadingIcon.addChild(new loaderIconAsset());
+			var gear:* = _loadingIcon.addChild(new loaderIconAsset());
 			gear.x = -gear.width*0.5;
 			gear.y = -gear.height*0.5;
 			gear = null;
@@ -43,6 +45,8 @@ package
 			txt.y = stage.stageHeight - 65;
 			
 			addEventListener(Event.ENTER_FRAME, _update);
+			
+			ParentAppSystem.start();
 			
 			_startLoad();
 		}
@@ -76,7 +80,7 @@ package
 		}
 		
 		private function _update(pEvent:Event):void {
-			var dt = 0.012;
+			var dt : Number = 0.012;
 			if(_loadingIcon != null) {
 				_loadingIcon.rotation += 360 * dt;
 			}
