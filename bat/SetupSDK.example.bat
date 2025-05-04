@@ -3,7 +3,7 @@ cd %~dp0 & cd ..
 
 :user_configuration
 
-:: Static path to Flex SDK
+:: Static path to Flex SDK - where ever it is you choose to store it!
 set FLEX_SDK=C:\flex_sdk
 
 :: Use FD supplied SDK path if executed from FD

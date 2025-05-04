@@ -18,9 +18,9 @@ call adt -package -target bundle %AIR_PATH%\%AIR_NAME%%AIR_TARGET% %OUTPUT%
 
 :: call adt -package -target apk-captive-runtime %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME% %OUTPUT%
 :: call adt -package -target apk-captive-runtime %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME%.apk %AIR_PATH%\%AIR_NAME%-app.xml "bin\Fewfre's A801 Tools.swf" meta
-@REM call adt -package -target apk-captive-runtime %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME%.apk application.xml "Fewfre's A801 Tools.swf" meta
+:: call adt -package -target apk-captive-runtime %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME%.apk application.xml "Fewfre's A801 Tools.swf" meta
 :: call adt -package -target apk-debug -listen 7936 %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME%.apk application.xml "Fewfre's A801 Tools.swf" meta
-call adt -package -target apk %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME%.apk "application-android-window-content.xml" "bin/Fewfre's A801 Tools.swf" meta
+call adt -package -target apk %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME%.apk %APP_XML_FOR_APK% %APK_SOURCE_SWF% meta
 
 if errorlevel 1 goto failed
 goto end

@@ -1,15 +1,12 @@
 {
 	"compilerOptions": {
-		"source-path": [
-			"src"
-		],
+		"source-path": ["src"],
 		"output": "bin/Fewfre's A801 Tools.swf",
+		"strict": true,
+		"warnings": true,
 		"default-frame-rate": 30,
 		"default-background-color": "#FFFFFF",
-		"default-size": {
-			"width": 800,
-			"height": 600
-		},
+		"default-size": { "width": 900, "height": 425 },
 		"target-player": "3.0",
 		"accessible": false,
 		"advanced-telemetry": false,
@@ -17,10 +14,8 @@
 		"optimize": true,
 		"omit-trace-statements": true,
 		"show-unused-type-selector-warnings": true,
-		"strict": true,
 		"use-network": true,
 		"use-resource-bundle-metadata": true,
-		"warnings": true,
 		"verbose-stacktraces": false,
 		"static-link-runtime-shared-libraries": true
 	},
