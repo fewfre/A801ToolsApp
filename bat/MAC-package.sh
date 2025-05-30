@@ -1,6 +1,10 @@
 dir=$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 echo $dir
 
+# NOTES:
+# I also deleted in as3proj: <movie preferredSDK="E:\_etc\frameworks\harman-2022\AIRSDK_Windows-50-0-1-1" />
+# and then just had airsdk in the root of proj; idr why, but was likely giving me issues
+
 ###########################
 # SetupSDK
 ###########################
@@ -69,6 +73,7 @@ echo Packaging $AIR_NAME$AIR_TARGET.air using certificate $CERT_FILE...
 echo "-package $OPTIONS $SIGNING_OPTIONS $OUTPUT $APP_XML $FILE_OR_DIR"
 $ADT -package $OPTIONS $SIGNING_OPTIONS $OUTPUT $APP_XML $FILE_OR_DIR
 # Making native installer - https://help.adobe.com/en_US/air/build/WS789ea67d3e73a8b22388411123785d839c-8000.html
-$ADT -package -target native $AIR_PATH/$AIR_NAME$AIR_TARGET $OUTPUT
+# $ADT -package -target native $AIR_PATH/$AIR_NAME$AIR_TARGET $OUTPUT
+$ADT -package -target bundle $AIR_PATH/$AIR_NAME$AIR_TARGET $OUTPUT
 
 # call adt -package -target apk-captive-runtime %SIGNING_OPTIONS% %AIR_PATH%\%AIR_NAME% %OUTPUT%
