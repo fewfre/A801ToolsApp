@@ -1,5 +1,6 @@
 package
 {
+    import flash.desktop.NativeApplication;
     import flash.display.*;
     import flash.events.*;
     import flash.net.*;
@@ -17,11 +18,11 @@ package
 	public class AppMain extends MovieClip
 	{
 		// Assets
-		[Embed (source="icon.png" )]
+		[Embed (source="icon.png")]
 		public static const loaderIconAsset:Class;
 		
 		// Constants
-		private static const URL      : String = "http://projects.fewfre.com/a801/tools/toolsapp/tools.swf";
+		private static const URL      : String = "https://projects.fewfre.com/a801/tools/toolsapp/tools.swf";
 		private static const URL_BASE : String = "https://projects.fewfre.com/a801/tools/toolsapp/";
 		
 		// Storage
@@ -97,7 +98,10 @@ package
 					_displayErrorMessage(message);
 					setTimeout(_attemptLoad,1000,pTries+1);
 				});
-				swfLoader.load(new URLRequest(url + "?d=" + _getCacheBreak(pTries)));
+				var tRequest:URLRequest = new URLRequest(url + "?d=" + _getCacheBreak(pTries));
+				if (NativeApplication.nativeApplication) tRequest.data = new URLVariables("cache=no+cache");
+				tRequest.requestHeaders.push(new URLRequestHeader("pragma", "no-cache"));
+				swfLoader.load(tRequest);
 			}
 			catch(e) {
 				_displayErrorMessage("(_attemptLoad)["+e.name+":"+e.errorID+"] "+e.message);
@@ -108,7 +112,7 @@ package
 			var logs:Array = [];
 			try {
 				// Setup loader
-				logs.push('[a]');
+				logs.push('[a] (last ditch attempt)');
 				var loadedUrlLoader:URLLoader = URLLoader(event.currentTarget);
 				logs.push('[b:'+Number(!!loadedUrlLoader)+']');
 				logs.push('[c:'+loadedUrlLoader.dataFormat+', '+loadedUrlLoader.bytesLoaded+'/'+loadedUrlLoader.bytesTotal+']');
