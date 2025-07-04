@@ -22,8 +22,8 @@ package
 		public static const loaderIconAsset:Class;
 		
 		// Constants
-		private static const URL      : String = "https://projects.fewfre.com/a801/tools/toolsapp/tools.swf";
-		private static const URL_BASE : String = "https://projects.fewfre.com/a801/tools/toolsapp/";
+		private static const URL      : String = "http://projects.fewfre.com/a801/tools/toolsapp/tools.swf"; // http:// on purpose since certs causing issues on w7
+		private static const URL_BASE : String = "http://projects.fewfre.com/a801/tools/toolsapp/"; // http:// on purpose since certs causing issues on w7
 		
 		// Storage
 		private var _loader:Loader;
